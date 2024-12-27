@@ -48,5 +48,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<string>This app requires access to your photo library to upload images.</string>
+	<key>UILaunchStoryboardName</key>
 </dict>
 </plist>
