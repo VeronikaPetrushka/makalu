@@ -1,7 +1,9 @@
 const encyclopedia = [
     {
+        image: require('../assets/book/1.png'),
         topic: "Climbing Harnesses: Types and How to Choose",
         education: "A climbing harness is one of the most critical pieces of equipment in a mountaineer's kit. It connects the climber to the rope, providing safety and stability while climbing. There are various types of harnesses designed for different types of climbing, including sport climbing, trad climbing, alpine climbing, and ice climbing.",
+        typesTitle: 'Types of Climbing Harnesses',
         types: [
             {
                 type: "Sport Climbing Harness",
@@ -21,6 +23,7 @@ const encyclopedia = [
             }
         ],
         guide: "When choosing a harness, climbers must consider comfort, fit, and the type of climbing they plan to do. Try on a harness before purchasing to ensure it fits well and allows full mobility. It should fit snugly around the waist and legs without being too tight and should be adjustable for varying clothing layers.",
+        featuresTitle: 'Features to Look For',
         features: [
             "Waistbelt: Wide and padded for comfort, especially for multi-pitch climbs.",
             "Leg Loops: Padded for comfort; adjustable loops are important for alpine and winter climbing.",
@@ -33,8 +36,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/2.png'),
         topic: "Climbing Ropes: Materials, Diameters, and Uses",
         education: "A climbing rope is the lifeline for a climber, providing essential safety and protection during both lead and top-rope climbing. The rope is used for securing climbers to anchors, belaying partners, and arresting falls. Choosing the right rope is crucial to ensure safety, performance, and longevity.",
+        typesTitle: 'Types of Climbing Ropes',
         types: [
             {
                 type: "Dynamic Ropes",
@@ -54,6 +59,8 @@ const encyclopedia = [
             }
         ],
         guide: "Factors to consider when choosing a rope include the type of climbing, terrain, and personal preferences.",
+        featuresTitle: 'Choosing the Right Rope',
+        featuresText: 'Factors to consider when choosing a rope include the type of climbing, the terrain, and personal preferences.',
         features: [
             "Length: Ropes range from 30m to 80m. Longer ropes provide more flexibility, while shorter ropes are lighter and easier to manage.",
             "Diameter: Determines strength, durability, and handling. Thicker ropes last longer but are heavier; thinner ropes are lighter but may wear out more quickly.",
@@ -65,8 +72,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/3.png'),
         topic: "Carabiners: Types, Uses, and Safety",
         education: "Carabiners are essential pieces of equipment in mountaineering and climbing. They are used to connect various components of the climbing system, including ropes, harnesses, and anchors. Carabiners come in various shapes, sizes, and locking mechanisms, and understanding how to choose and use them properly is essential for safety.",
+        typesTitle: 'Types of Carabiners',
         types: [
             {
                 type: "Oval Carabiners",
@@ -86,6 +95,8 @@ const encyclopedia = [
             }
         ],
         guide: "Carabiners come in different sizes and strengths, so it’s essential to choose the right one based on the type of climbing you are doing. Pay attention to the gate mechanism (locking vs. non-locking) and ensure the carabiner is rated for the weight and forces it will encounter.",
+        featuresTitle: 'How to Choose Carabiners',
+        featuresText: 'Carabiners come in different sizes and strengths, so it’s essential to choose the right one based on the type of climbing you are doing. Pay attention to the gate mechanism (locking vs. non-locking), and make sure the carabiner is rated for the weight and forces it will encounter.',
         features: [
             "Locking Mechanism: Crucial for safety-critical applications, especially for securing ropes and belaying.",
             "Weight and Durability: Lighter carabiners are preferred for sport climbing, while heavier, more durable ones are better for trad climbing."
@@ -96,8 +107,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/4.png'),
         topic: "Climbing Crampons: Features, Types, and Uses",
         education: "Crampons are essential for climbing on snow and ice. They provide traction on icy surfaces, allowing climbers to ascend steep slopes or glaciers. Crampons are worn over boots and are equipped with sharp metal points that dig into the ice, offering a stable footing.",
+        typesTitle: 'Types of Crampons',
         types: [
             {
                 type: "General Mountaineering Crampons",
@@ -117,6 +130,8 @@ const encyclopedia = [
             }
         ],
         guide: "When selecting crampons, climbers should consider the type of climbing they plan to do and the type of boots they will be using.",
+        featuresTitle: 'How to Choose Crampons',
+        featuresText: 'When selecting crampons, climbers should consider the type of climbing they plan to do, as well as the type of boots they will be using.',
         features: [
             "Boot Compatibility: Ensure crampons are compatible with your climbing boots. Some crampons are designed for specific boot types.",
             "Point Design: For steep ice or mixed rock-ice routes, choose crampons with longer, more aggressive points. For glacier climbing or general mountaineering, shorter, more versatile points are sufficient."
@@ -127,8 +142,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/5.png'),
         topic: "Ice Axes: Types, Uses, and How to Choose the Right One",
         education: "An ice axe is a critical tool for climbing on icy or snow-covered terrain, offering stability, balance, and protection. It’s used to arrest falls, aid in self-belaying, and assist in traversing ice slopes. Choosing the right ice axe depends on the type of climbing, terrain, and personal preferences.",
+        typesTitle: 'Types of Ice Axes',
         types: [
             {
                 type: "Classic Ice Axes",
@@ -148,6 +165,7 @@ const encyclopedia = [
             }
         ],
         guide: "Choosing the right ice axe involves considering the type of climbing, terrain, and length. Shorter axes are ideal for technical climbing, while longer axes work better for general mountaineering.",
+        featuresTitle: 'How to Choose an Ice Axe',
         features: [
             "Length: Shorter axes are lighter and suitable for steep climbing, while longer axes provide more reach and stability for general use.",
             "Pick: The angle and shape of the pick are important for performance. Aggressive picks are suited for steep ice, while milder angles are better for glacier travel."
@@ -158,8 +176,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/6.png'),
         topic: "Climbing Boots: What You Need to Know",
         education: "Climbing boots are designed to provide support, protection, and traction on various climbing surfaces. Properly fitted boots are crucial for safety and performance, especially in extreme conditions like ice, rock, or mixed terrain. Boots come in various designs to meet the specific needs of climbers.",
+        typesTitle: 'Types of Climbing Boots',
         types: [
             {
                 type: "Bouldering Boots",
@@ -179,6 +199,7 @@ const encyclopedia = [
             }
         ],
         guide: "Choose climbing boots based on the fit, support, and insulation needed for the environment and type of climb.",
+        featuresTitle: 'How to Choose Climbing Boots',
         features: [
             "Fit: Ensure boots fit snugly without causing discomfort. Toes should touch the front without pain or pressure points.",
             "Support: Boots for technical climbs should provide sufficient ankle and arch support to prevent injury.",
@@ -190,8 +211,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/7.png'),
         topic: "Belay Devices: Types, Uses, and Safety",
         education: "Belay devices are used to control the rope during climbing, providing protection in case the climber falls. There are several types of belay devices, each designed for different climbing activities. Choosing the right one depends on the style of climbing and the level of control required.",
+        typesTitle: 'Types of Belay Devices',
         types: [
             {
                 type: "Tube-Style Belay Devices",
@@ -211,6 +234,7 @@ const encyclopedia = [
             }
         ],
         guide: "Choosing the right belay device depends on the climbing style, ease of use, and compatibility with the rope. Consider auto-locking or assisted-braking devices for more control during lead climbing, and tube-style devices for general use.",
+        featuresTitle: 'How to Choose a Belay Device',
         features: [
             "Climbing Style: Select a device suited to your type of climbing. For lead climbing, auto-locking or assisted-braking devices provide added safety.",
             "Ease of Use: Ensure the belay device works well with your rope and feels smooth and comfortable when handling."
@@ -221,8 +245,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/8.png'),
         topic: "Climbing Chalk: Importance and Uses",
         education: "Climbing chalk is used to absorb sweat and improve grip, especially during strenuous climbing sessions. While it may seem like a minor piece of equipment, it’s a vital tool for climbers, particularly in sport climbing or during long climbs in warm conditions. Chalk also helps maintain a dry grip on wet rocks or holds.",
+        typesTitle: 'Types of Climbing Chalk',
         types: [
             {
                 type: "Loose Chalk",
@@ -238,6 +264,7 @@ const encyclopedia = [
             }
         ],
         guide: "Using chalk effectively involves applying the right amount to maintain a solid grip while minimizing waste and mess. Choose the type of chalk based on your climbing environment and personal preference.",
+        featuresTitle: 'How to Use Chalk',
         features: [
             "Use Chalk Sparingly: Overusing chalk can make hands slippery. Apply just enough to dry the skin and improve grip.",
             "Refill Chalk Balls Regularly: Ensure your chalk supply is adequate for long climbs by refilling chalk balls as needed."
@@ -248,8 +275,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/9.png'),
         topic: "Climbing Protection: Types and How to Place It",
         education: "Climbing protection is used to secure the climber to the rock, ensuring safety in the event of a fall. These devices are essential in trad climbing and require skillful placement for effective use. Mastering protection placement is a key skill for every trad climber.",
+        typesTitle: 'Types of Climbing Protection',
         types: [
             {
                 type: "Nuts",
@@ -269,6 +298,7 @@ const encyclopedia = [
             }
         ],
         guide: "Proper placement of climbing protection involves selecting the right device size for the crack, testing the placement before loading it, and carrying a variety of protection types for different terrains.",
+        featuresTitle: 'How to Place Protection',
         features: [
             "Choose the Right Size: Ensure the protection fits the crack securely. Incorrect sizing can result in failure to hold.",
             "Check Placement: Gently pull on the placed protection to test its stability before relying on it for support."
@@ -279,8 +309,10 @@ const encyclopedia = [
         ]
     },
     {
+        image: require('../assets/book/10.png'),
         topic: "Climbing Knots: Essential Knots Every Climber Should Know",
         education: "Climbing knots are vital for securing ropes, harnesses, and other equipment, ensuring safety during a climb. Mastering key knots is crucial for climbers of all levels to handle various climbing scenarios confidently.",
+        typesTitle: 'Essential Climbing Knots',
         types: [
             {
                 type: "Figure-8 Knot",
@@ -300,6 +332,7 @@ const encyclopedia = [
             }
         ],
         guide: "Practice tying knots until they can be done quickly and confidently in various conditions. Always inspect knots before use to ensure they are secure.",
+        featuresTitle: 'How to Tie and Use Climbing Knots',
         features: [
             "Practice Regularly: Build muscle memory by practicing knots in different conditions, such as low-light or cold environments.",
             "Double-Check Knots: Always inspect knots for proper tying and tightness before starting a climb."

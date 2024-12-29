@@ -83,7 +83,7 @@ const Home = () => {
                 </View>
 
                 <View style={[styles.btnContainer, {marginBottom: height * 0.03}]}>
-                    <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0, width: 100, height: 100}]} onPress={''}>
+                    <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0, width: 100, height: 100}]} onPress={() => navigation.navigate('EncyclopediaScreen')}>
                         <Icons type={'book'} />
                     </TouchableOpacity>
                     <Text style={[styles.btnText, {fontSize: 20}]}>Encyclopedia</Text>
@@ -91,7 +91,7 @@ const Home = () => {
 
                 <View style={styles.btnsContainer}>
                     <View style={styles.btnContainer}>
-                        <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0}]} onPress={''}>
+                        <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0}]} onPress={() => navigation.navigate('DairyScreen')}>
                             <Icons type={'dairy'} />
                         </TouchableOpacity>
                         <Text style={[styles.btnText, {color: '#fff'}]}>Dairy</Text>

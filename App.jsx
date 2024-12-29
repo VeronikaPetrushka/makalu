@@ -10,6 +10,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import AlbumScreen from './src/screens/AlbumScreen.jsx';
 import AchievementsScreen from './src/screens/AchievementsScreen.jsx';
 import DetailsScreen from './src/screens/DetailsScreen.jsx';
+import EncyclopediaScreen from './src/screens/EncyclopediaScreen.jsx';
+import MoreScreen from './src/screens/MoreScreen.jsx';
 
 enableScreens();
 
@@ -40,6 +42,16 @@ const App = () => {
                     <Stack.Screen 
                         name="DetailsScreen" 
                         component={DetailsScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="EncyclopediaScreen" 
+                        component={EncyclopediaScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="MoreScreen" 
+                        component={MoreScreen} 
                         options={{ headerShown: false }} 
                     />
                 </Stack.Navigator>

@@ -149,6 +149,6 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
-})
+});
 
 export default Achievements;
