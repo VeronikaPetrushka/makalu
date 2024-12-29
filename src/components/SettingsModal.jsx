@@ -51,6 +51,7 @@ const SettingsModal = ({ visible, onClose }) => {
             await AsyncStorage.setItem('userProfileName');
             await AsyncStorage.removeItem('uploadedImage');
             await AsyncStorage.removeItem('birthDate');
+            await AsyncStorage.removeItem('album');
 
             setShowResetConfirmation(false);
 

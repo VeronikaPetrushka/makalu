@@ -31,6 +31,29 @@ const Icons = ({ type, light }) => {
       imageSource = require('../assets/common/vibration-off.png');
       iconStyle.push(styles.color);
       break;
+    case 'back':
+      imageSource = require('../assets/common/back.png');
+      iconStyle.push(styles.color);
+      break;
+    case 'book':
+      imageSource = require('../assets/common/book.png');
+      break;
+    case 'dairy':
+      imageSource = require('../assets/common/dairy.png');
+      break;
+    case 'album':
+      imageSource = require('../assets/common/album.png');
+      break;
+    case 'achieves':
+      imageSource = require('../assets/common/achieves.png');
+      break;
+    case 'camera':
+      imageSource = require('../assets/common/camera.png');
+      iconStyle.push(styles.color);
+      break;
+    case 'map':
+      imageSource = require('../assets/common/map.png');
+      break;
   }
 
   return (

@@ -7,6 +7,9 @@ import { MusicProvider } from './src/constants/music.js';
 import MusicPlayer from './src/components/MusicPlayer';
 
 import HomeScreen from './src/screens/HomeScreen';
+import AlbumScreen from './src/screens/AlbumScreen.jsx';
+import AchievementsScreen from './src/screens/AchievementsScreen.jsx';
+import DetailsScreen from './src/screens/DetailsScreen.jsx';
 
 enableScreens();
 
@@ -22,6 +25,21 @@ const App = () => {
                     <Stack.Screen 
                         name="HomeScreen" 
                         component={HomeScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="AlbumScreen" 
+                        component={AlbumScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="AchievementsScreen" 
+                        component={AchievementsScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="DetailsScreen" 
+                        component={DetailsScreen} 
                         options={{ headerShown: false }} 
                     />
                 </Stack.Navigator>
