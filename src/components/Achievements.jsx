@@ -20,6 +20,8 @@ const Achievements = () => {
         fetchPlaces();
     }, []);
 
+    console.log(places)
+
     return(
         <ImageBackground source={require('../assets/back/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
@@ -40,6 +42,7 @@ const Achievements = () => {
                                 <View style={styles.achievementDetails}>
                                     <Text style={styles.placeName}>{place.name}</Text>
                                     <Text style={styles.country}>{place.country}</Text>
+                                    <Text style={[styles.country, {fontSize: 14, color: 'grey', fontWeight: '300'}]}>Visited on {place.checkInDate}</Text>
                                     {place.achievement.map((achieve, idx) => (
                                         <View key={idx} style={styles.achievementItem}>
                                             <Text style={styles.achievementTitle}>{achieve.title}</Text>
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
 
     placeImage: {
         width: '100%',
-        height: height * 0.25,
+        height: height * 0.3,
         resizeMode: 'cover',
     },
 

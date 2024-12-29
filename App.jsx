@@ -12,6 +12,7 @@ import AchievementsScreen from './src/screens/AchievementsScreen.jsx';
 import DetailsScreen from './src/screens/DetailsScreen.jsx';
 import EncyclopediaScreen from './src/screens/EncyclopediaScreen.jsx';
 import MoreScreen from './src/screens/MoreScreen.jsx';
+import DairyScreen from './src/screens/DairyScreen.jsx';
 
 enableScreens();
 
@@ -52,6 +53,11 @@ const App = () => {
                     <Stack.Screen 
                         name="MoreScreen" 
                         component={MoreScreen} 
+                        options={{ headerShown: false }} 
+                    />
+                    <Stack.Screen 
+                        name="DairyScreen" 
+                        component={DairyScreen} 
                         options={{ headerShown: false }} 
                     />
                 </Stack.Navigator>

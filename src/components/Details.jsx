@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ImageBackground, View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, ScrollView, Modal } from "react-native";
+import { ImageBackground, View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, ScrollView, Modal, TextInput } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +15,8 @@ const Details = ({ place }) => {
     const [uploadedImages, setUploadedImages] = useState([]);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isVisited, setIsVisited] = useState(false);
+    const [checkInDate, setCheckInDate] = useState('');
+    const [dateError, setDateError] = useState('');
 
     useEffect(() => {
         const fetchUploadedImages = async () => {
@@ -82,15 +84,48 @@ const Details = ({ place }) => {
     }, [place.name]);    
 
     const handleCheckIn = async () => {
+        const dateRegex = /^\d{2}\.\d{2}\.\d{4}$/;
+        if (!checkInDate || !dateRegex.test(checkInDate)) {
+            setDateError('Please enter a valid date in the format dd.mm.yyyy.');
+            return;
+        }
+    
+        const [day, month, year] = checkInDate.split('.').map(num => parseInt(num, 10));
+    
+        if (month < 1 || month > 12) {
+            setDateError('Month must be between 01 and 12.');
+            return;
+        }
+    
+        if (day < 1 || day > 31) {
+            setDateError('Day must be between 01 and 31.');
+            return;
+        }
+    
+        const daysInMonth = new Date(year, month, 0).getDate();
+        if (day > daysInMonth) {
+            setDateError(`This month only has ${daysInMonth} days.`);
+            return;
+        }
+    
+        const today = new Date();
+        const inputDate = new Date(year, month - 1, day);
+        if (inputDate > today) {
+            setDateError('Please enter a date that is not in the future.');
+            return;
+        }
+    
         const visitedPlaces = await AsyncStorage.getItem('places');
         const parsedPlaces = visitedPlaces ? JSON.parse(visitedPlaces) : [];
         
-        const updatedPlaces = [...parsedPlaces, place];
+        const updatedPlaces = [...parsedPlaces, { ...place, checkInDate }];
         await AsyncStorage.setItem('places', JSON.stringify(updatedPlaces));
         
         setIsVisited(true);
         setIsModalVisible(false);
-    };    
+        setDateError('');
+    };
+    
 
     return (
         <ImageBackground source={require('../assets/back/1.png')} style={{flex: 1}}>
@@ -199,6 +234,14 @@ const Details = ({ place }) => {
                             <Text style={styles.modalText}>
                                 Have you visited {place.name} in {place.country}? Let’s check in to grab your achievement!
                             </Text>
+                            <TextInput
+                                style={styles.textInput}
+                                placeholder="Enter date dd.mm.yyyy"
+                                value={checkInDate}
+                                onChangeText={setCheckInDate}
+                                keyboardType="numeric"
+                            />
+                            {dateError ? <Text style={styles.errorText}>{dateError}</Text> : null}
                             <View style={styles.modalButtons}>
                                 <TouchableOpacity style={styles.modalButton} onPress={() => setIsModalVisible(false)}>
                                     <Text style={styles.modalButtonText}>Not Yet</Text>
@@ -362,7 +405,20 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '800',
     },    
-
+    textInput: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: '#ddd',
+        borderRadius: 8,
+        padding: 10,
+        marginVertical: 10,
+        fontSize: 16,
+    },
+    errorText: {
+        color: 'red',
+        fontSize: 14,
+        marginBottom: 10,
+    },
 });
 
 export default Details;
