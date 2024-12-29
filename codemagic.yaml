@@ -50,4 +50,4 @@ workflows:
           app_store_connect:
             auth: integration
             submit_to_app_store: true
-            copyright: Path to Peaks Merkur to Makalu2024
+            copyright: Path to Peaks Merkur to Makalu 2024
