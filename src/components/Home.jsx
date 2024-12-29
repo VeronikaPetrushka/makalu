@@ -67,20 +67,22 @@ const Home = () => {
                     </View>
                 </View>
 
-                <ScrollView horizontal={true}>
-                    {
-                        places.map((place, index) => (
-                            <View key={index} style={styles.placeContainer}>
-                                <Image source={place.image} style={styles.placeImage} />
-                                <TouchableOpacity style={styles.placeBtn} onPress={() => navigation.navigate('DetailsScreen', {place: place})}>
-                                    <Text style={styles.placeBtnText}>{place.name} - {place.country}</Text>
-                                </TouchableOpacity>
-                            </View>
-                        ))
-                    }
-                </ScrollView>
+                <View style={{height: height * 0.37, marginBottom: height * 0.03}}>
+                    <ScrollView style={{height: '100%'}} horizontal={true}>
+                        {
+                            places.map((place, index) => (
+                                <View key={index} style={styles.placeContainer}>
+                                    <Image source={place.image} style={styles.placeImage} />
+                                    <TouchableOpacity style={styles.placeBtn} onPress={() => navigation.navigate('DetailsScreen', {place: place})}>
+                                        <Text style={styles.placeBtnText}>{place.name} - {place.country}</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            ))
+                        }
+                    </ScrollView>
+                </View>
 
-                <View style={[styles.btnContainer]}>
+                <View style={[styles.btnContainer, {marginBottom: height * 0.03}]}>
                     <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0, width: 100, height: 100}]} onPress={''}>
                         <Icons type={'book'} />
                     </TouchableOpacity>
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
 
     placeContainer: {
         marginHorizontal: 10,
-        width: width * 0.87,
+        width: width * 0.843,
         alignItems: 'center',
         justifyContent: 'space-between'
     },
@@ -189,7 +191,7 @@ const styles = StyleSheet.create({
     placeBtnText: {
         fontSize: 18,
         fontWeight: '900',
-        color: 'grey'
+        color: '#3d4145'
     }
 
 })

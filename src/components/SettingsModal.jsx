@@ -47,11 +47,12 @@ const SettingsModal = ({ visible, onClose }) => {
 
     const handleReset = async () => {
         try {
-            await AsyncStorage.setItem('userProfile');
-            await AsyncStorage.setItem('userProfileName');
+            await AsyncStorage.removeItem('userProfile');
+            await AsyncStorage.removeItem('userProfileName');
             await AsyncStorage.removeItem('uploadedImage');
             await AsyncStorage.removeItem('birthDate');
             await AsyncStorage.removeItem('album');
+            await AsyncStorage.removeItem('places');
 
             setShowResetConfirmation(false);
 

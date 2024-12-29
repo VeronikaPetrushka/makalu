@@ -27,7 +27,14 @@ const places = [
                 description: 'Upon reaching the top, the Merkur Tower awaits, offering a 360-degree view of the Black Forest and surrounding areas.'
             }
         ],
-        tip: 'Wear comfortable hiking boots with good grip. In the winter, the trail can be icy, so bring trekking poles for stability. Always check the weather forecast before heading out.'
+        tip: 'Wear comfortable hiking boots with good grip. In the winter, the trail can be icy, so bring trekking poles for stability. Always check the weather forecast before heading out.',
+        achievement: [
+            {
+                title: 'Summit of Merkur',
+                name: 'Conquer Merkur Mountain, Germany',
+                description: 'You’ve reached the top of Merkur! A well-earned achievement, congratulations on conquering this iconic peak!'
+            }
+        ]
     },
     {
         image: require('../assets/places/2.png'),
@@ -57,7 +64,14 @@ const places = [
                 description: 'The descent follows the same route, with additional caution required due to snow and ice conditions. The Gouter Refuge serves as a crucial rest stop on the way down.'
             }
         ],
-        tip: 'Acclimatization is key to prevent altitude sickness. Ensure you\'re physically prepared for a multi-day climb with sufficient provisions. Carry a full range of technical equipment, including ice axes, crampons, and ropes.'
+        tip: 'Acclimatization is key to prevent altitude sickness. Ensure you\'re physically prepared for a multi-day climb with sufficient provisions. Carry a full range of technical equipment, including ice axes, crampons, and ropes.',
+        achievement: [
+            {
+                title: 'Mont Blanc Master',
+                name: 'Conquer Mont Blanc, France/Italy',
+                description: 'Congratulations on summiting Mont Blanc! You’ve conquered the highest peak in Western Europe!'
+            }
+        ]
     },
     {
         image: require('../assets/places/3.png'),
@@ -95,7 +109,14 @@ const places = [
                 description: 'Climbers descend via the same route, making it a two-week endeavor at a minimum.'
             }
         ],
-        tip: 'Acclimatization is absolutely crucial for survival, and it’s recommended to ascend slowly and climb high but sleep low. Oxygen supplementation is often necessary above 8,000 meters.'
+        tip: 'Acclimatization is absolutely crucial for survival, and it’s recommended to ascend slowly and climb high but sleep low. Oxygen supplementation is often necessary above 8,000 meters.',
+        achievement: [
+            {
+                title: 'Everest Victorious',
+                name: 'Conquer Mount Everest, Nepal/Tibet',
+                description: 'You’ve made it to the top of Mount Everest! The highest point on Earth is now a part of your incredible journey.'
+            }
+        ]
     },
     {
         image: require('../assets/places/4.png'),
@@ -125,7 +146,14 @@ const places = [
                 description: 'The summit offers spectacular views, including the famed crater and Mt. Fuji\'s signature shape. There are several shrines at the top.'
             }
         ],
-        tip: 'The weather can change quickly, so bring a jacket, gloves, and proper hiking shoes. It\'s also common to climb overnight in order to watch the sunrise from the summit.'
+        tip: 'The weather can change quickly, so bring a jacket, gloves, and proper hiking shoes. It\'s also common to climb overnight in order to watch the sunrise from the summit.',
+        achievement: [
+            {
+                title: 'Mount Fuji Climber',
+                name: 'Conquer Mount Fuji, Japan',
+                description: 'Congratulations! You’ve reached the summit of Mount Fuji, a symbol of Japan’s beauty and strength.'
+            }
+        ]
     },
     {
         image: require('../assets/places/5.png'),
@@ -155,7 +183,14 @@ const places = [
                 description: 'The descent follows the Mweka Route, which is easier than the ascent.'
             }
         ],
-        tip: 'Acclimatization is important to avoid altitude sickness. Be prepared for a cold summit night and wear layers of clothing.'
+        tip: 'Acclimatization is important to avoid altitude sickness. Be prepared for a cold summit night and wear layers of clothing.',
+        achievement: [
+            {
+                title: 'Kilimanjaro Conqueror',
+                name: 'Conquer Mount Kilimanjaro, Tanzania',
+                description: 'Amazing work reaching the summit of Kilimanjaro! You’ve taken on Africa’s tallest mountain with great determination.'
+            }
+        ]
     },
     {
         image: require('../assets/places/6.png'),
@@ -185,7 +220,14 @@ const places = [
                 description: 'The descent follows the same route, and climbers must remain cautious due to the steepness and risk of rockfall.'
             }
         ],
-        tip: 'Due to the technical nature of the climb, climbers should be well-versed in alpine climbing techniques and prepared for extreme weather changes. High-altitude experience is necessary.'
+        tip: 'Due to the technical nature of the climb, climbers should be well-versed in alpine climbing techniques and prepared for extreme weather changes. High-altitude experience is necessary.',
+        achievement: [
+            {
+                title: 'Matterhorn Master',
+                name: 'Conquer the Matterhorn, Switzerland/Italy',
+                description: 'Incredible achievement! You’ve conquered the iconic Matterhorn, one of the most famous peaks in the Alps!'
+            }
+        ]
     },
     {
         image: require('../assets/places/7.png'),
@@ -215,7 +257,14 @@ const places = [
                 description: 'The descent follows the same route, but climbers should take great care due to avalanche risks and the difficult conditions.'
             }
         ],
-        tip: 'Denali is often considered one of the hardest climbs due to its length and cold weather. It is crucial to be well-prepared with high-altitude gear and specialized equipment.'
+        tip: 'Denali is often considered one of the hardest climbs due to its length and cold weather. It is crucial to be well-prepared with high-altitude gear and specialized equipment.',
+        achievement: [
+            {
+                title: 'Denali Conqueror',
+                name: 'Conquer Denali, USA (Alaska)',
+                description: 'Fantastic job on summiting Denali, the highest peak in North America. Your climbing skills are truly exceptional!'
+            }
+        ]
     },
     {
         image: require('../assets/places/8.png'),
@@ -245,7 +294,14 @@ const places = [
                 description: 'The descent is equally challenging due to the steep cliffs and technical sections. It requires caution, as the conditions can change rapidly.'
             }
         ],
-        tip: 'K2 is considered the hardest of the "eight-thousanders," and it is recommended that climbers have experience on other high-altitude peaks before attempting it. Weather conditions are notoriously unstable, so it’s important to monitor the forecast closely.'
+        tip: 'K2 is considered the hardest of the "eight-thousanders," and it is recommended that climbers have experience on other high-altitude peaks before attempting it. Weather conditions are notoriously unstable, so it’s important to monitor the forecast closely.',
+        achievement: [
+            {
+                title: 'K2 Conqueror',
+                name: 'Conquer K2, Pakistan/China',
+                description: 'Unbelievable feat! Conquering the Savage Mountain is a testament to your unparalleled skill, resilience, and bravery. You’ve overcome one of the world’s greatest mountaineering challenges!'
+            }
+        ]
     },
     {
         image: require('../assets/places/9.png'),
@@ -275,7 +331,14 @@ const places = [
                 description: 'The descent is straightforward, but climbers should be cautious of fatigue and altitude sickness.'
             }
         ],
-        tip: 'Elbrus is considered less technically challenging than other peaks but still requires good physical conditioning. Proper clothing and equipment are essential due to the cold temperatures.'
+        tip: 'Elbrus is considered less technically challenging than other peaks but still requires good physical conditioning. Proper clothing and equipment are essential due to the cold temperatures.',
+        achievement: [
+            {
+                title: 'Elbrus Climber',
+                name: 'Conquer Mount Elbrus, Russia',
+                description: 'Well done! You’ve reached the top of Mount Elbrus, Europe’s highest peak. A true mountaineering feat!'
+            }
+        ]
     },
     {
         image: require('../assets/places/10.png'),
@@ -305,7 +368,14 @@ const places = [
                 description: 'The descent is equally challenging due to the glacier terrain, requiring careful navigation.'
             }
         ],
-        tip: 'Mount Cook’s weather can change quickly, and climbers must be prepared for cold and high winds. Ensure you have proper ice climbing skills and gear.'
+        tip: 'Mount Cook’s weather can change quickly, and climbers must be prepared for cold and high winds. Ensure you have proper ice climbing skills and gear.',
+        achievement: [
+            {
+                title: 'Aoraki Ace',
+                name: 'Conquer Aoraki / Mount Cook, New Zealand',
+                description: 'Outstanding achievement! Summiting the highest peak in New Zealand is a testament to your courage and resilience against challenging alpine conditions.'
+            }
+        ]
     },
     {
         image: require('../assets/places/11.png'),
@@ -335,7 +405,14 @@ const places = [
                 description: 'The descent is the reverse of the ascent, requiring caution due to snow conditions and weather changes.'
             }
         ],
-        tip: 'Mount Rainier is a technical climb and should be attempted only by climbers with experience in glacier travel. Be prepared for cold weather and possible altitude sickness.'
+        tip: 'Mount Rainier is a technical climb and should be attempted only by climbers with experience in glacier travel. Be prepared for cold weather and possible altitude sickness.',
+        achievement: [
+            {
+                title: 'Rainier Ranger',
+                name: 'Conquer Mount Rainier, USA (Washington)',
+                description: 'Incredible accomplishment! Tackling Mount Rainier’s glaciers and steep slopes showcases your technical expertise and determination.'
+            }
+        ]
     },
     {
         image: require('../assets/places/12.png'),
@@ -361,7 +438,14 @@ const places = [
                 description: 'Descending Annapurna is particularly dangerous due to avalanche risk. Climbers should be cautious of snow conditions on the way down.'
             }
         ],
-        tip: 'Only highly experienced mountaineers should attempt Annapurna, given its high risk and technical difficulty.'
+        tip: 'Only highly experienced mountaineers should attempt Annapurna, given its high risk and technical difficulty.',
+        achievement: [
+            {
+                title: 'Annapurna Adventurer',
+                name: 'Conquer Annapurna, Nepal',
+                description: 'Impressive achievement! Annapurna is a challenging peak, and you’ve conquered it with great courage and skill.'
+            }
+        ]
     }
 ];
 

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ImageBackground, View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, ScrollView } from "react-native";
+import { ImageBackground, View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, ScrollView, Modal } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useNavigation } from "@react-navigation/native";
@@ -13,6 +13,8 @@ const Details = ({ place }) => {
     const navigation = useNavigation();
     const [isMap, setIsMap] = useState(false);
     const [uploadedImages, setUploadedImages] = useState([]);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isVisited, setIsVisited] = useState(false);
 
     useEffect(() => {
         const fetchUploadedImages = async () => {
@@ -61,6 +63,35 @@ const Details = ({ place }) => {
         }
     };
 
+    useEffect(() => {
+        const fetchUploadedImages = async () => {
+            const album = await AsyncStorage.getItem('album');
+            const parsedAlbum = album ? JSON.parse(album) : {};
+            setUploadedImages(parsedAlbum[place.name] || []);
+        };
+    
+        const checkVisitedStatus = async () => {
+            const visitedPlaces = await AsyncStorage.getItem('places');
+            const parsedPlaces = visitedPlaces ? JSON.parse(visitedPlaces) : [];
+            const alreadyVisited = parsedPlaces.some(p => p.name === place.name);
+            setIsVisited(alreadyVisited);
+        };
+    
+        fetchUploadedImages();
+        checkVisitedStatus();
+    }, [place.name]);    
+
+    const handleCheckIn = async () => {
+        const visitedPlaces = await AsyncStorage.getItem('places');
+        const parsedPlaces = visitedPlaces ? JSON.parse(visitedPlaces) : [];
+        
+        const updatedPlaces = [...parsedPlaces, place];
+        await AsyncStorage.setItem('places', JSON.stringify(updatedPlaces));
+        
+        setIsVisited(true);
+        setIsModalVisible(false);
+    };    
+
     return (
         <ImageBackground source={require('../assets/back/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
@@ -80,6 +111,14 @@ const Details = ({ place }) => {
                     </TouchableOpacity>
 
                 </View>
+
+                <TouchableOpacity
+                    style={[styles.checkBtn, isVisited && { backgroundColor: 'rgba(77, 145, 137, 0.6)' }]}
+                    onPress={() => !isVisited && setIsModalVisible(true)}
+                    disabled={isVisited}
+                >
+                    <Text style={styles.checkBtnText}>{isVisited ? 'Visited' : 'Check in'}</Text>
+                </TouchableOpacity>
 
                 {
                     isMap ? (
@@ -136,11 +175,6 @@ const Details = ({ place }) => {
 
                 <Text style={styles.name}>{place.name}</Text>
 
-                <Text style={styles.address}>
-                    <Text style={{fontWeight: '700'}}>Address: </Text>
-                    {place.address}
-                </Text>
-
                 <ScrollView style={{width: '100%'}}>
                     <Text style={styles.description}>{place.description}</Text>
                     <Text style={styles.subTitle}>Climbing Route</Text>
@@ -153,6 +187,29 @@ const Details = ({ place }) => {
                     <Text style={styles.description}>{place.tip}</Text>
                     <View style={{height: 50}} />
                 </ScrollView>
+
+                <Modal
+                    transparent={true}
+                    animationType="fade"
+                    visible={isModalVisible}
+                    onRequestClose={() => setIsModalVisible(false)}
+                >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent}>
+                            <Text style={styles.modalText}>
+                                Have you visited {place.name} in {place.country}? Let’s check in to grab your achievement!
+                            </Text>
+                            <View style={styles.modalButtons}>
+                                <TouchableOpacity style={styles.modalButton} onPress={() => setIsModalVisible(false)}>
+                                    <Text style={styles.modalButtonText}>Not Yet</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.modalButton, {backgroundColor: '#4d9189'}]} onPress={handleCheckIn}>
+                                    <Text style={styles.modalButtonText}>Check In</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
 
             </View>
         </ImageBackground>
@@ -187,6 +244,24 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
 
+    checkBtn: {
+        padding: 5,
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderRadius: 4,
+        zIndex: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        right: 40,
+        top: height * 0.07,
+    },
+
+    checkBtnText: {
+        fontSize: 14,
+        fontWeight: '900',
+        color: '#3d4145'
+    },
+
     mapContainer: {
         width: '100%',
         height: height * 0.35,
@@ -202,8 +277,8 @@ const styles = StyleSheet.create({
 
     markerImage: {
         borderRadius: 20,
-        borderWidth: 2,
-        borderColor: '#f69809',
+        borderWidth: 3,
+        borderColor: '#4d9189',
         width: 60,
         height: 60
     },
@@ -226,15 +301,8 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 22,
         fontWeight: '900',
-        color: '#fceb9d',
+        color: '#3d4145',
         textAlign: 'center',
-        marginBottom: height * 0.02
-    },
-
-    address: {
-        fontSize: 16,
-        fontWeight: '500',
-        color: '#ffd080',
         marginBottom: height * 0.02
     },
 
@@ -251,10 +319,49 @@ const styles = StyleSheet.create({
     subTitle: {
         fontSize: 20,
         fontWeight: '900',
-        color: '#ffd080',
+        color: '#fff',
         textAlign: 'center',
         marginBottom: height * 0.01
-    }
+    },
+
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    },
+    modalContent: {
+        width: '80%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 20,
+        alignItems: 'center',
+    },
+    modalText: {
+        fontSize: 18,
+        fontWeight: '500',
+        textAlign: 'center',
+        marginBottom: 20,
+        color: '#3d4145',
+    },
+    modalButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    modalButton: {
+        padding: 10,
+        backgroundColor: '#3d4145',
+        borderRadius: 12,
+        width: '47%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    modalButtonText: {
+        color: '#fff',
+        fontSize: 15,
+        fontWeight: '800',
+    },    
 
 });
 

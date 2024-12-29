@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     placeName: {
         fontSize: 20,
         fontWeight: '800',
-        color: '#915320',
+        color: '#4d9189',
         marginBottom: 10,
     },
 
