@@ -164,8 +164,8 @@ const Details = ({ place }) => {
                                 initialRegion={{
                                     latitude: place.coordinates[0].lat,
                                     longitude: place.coordinates[0].lng,
-                                    latitudeDelta: 0.02,
-                                    longitudeDelta: 0.02,
+                                    latitudeDelta: 0.2,
+                                    longitudeDelta: 0.2,
                                 }}
                             >
                                 <Marker

@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: height * 0.1,
         marginTop: height * 0.08,
-        color: '#5109ae',
+        color: '#3d4145',
     },
     cancelReset: {
         width: '100%',

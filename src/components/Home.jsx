@@ -86,7 +86,7 @@ const Home = () => {
                     <TouchableOpacity style={[styles.btn, {borderWidth: 0, borderRadius: 0, width: 100, height: 100}]} onPress={() => navigation.navigate('EncyclopediaScreen')}>
                         <Icons type={'book'} />
                     </TouchableOpacity>
-                    <Text style={[styles.btnText, {fontSize: 20}]}>Encyclopedia</Text>
+                    <Text style={[styles.btnText, {fontSize: 20, color: '#fff'}]}>Encyclopedia</Text>
                 </View>
 
                 <View style={styles.btnsContainer}>
