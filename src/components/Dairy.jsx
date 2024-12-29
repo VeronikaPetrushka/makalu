@@ -14,7 +14,7 @@ const Dairy = () => {
     const [note, setNote] = useState('');
     const [notes, setNotes] = useState([]);
     const [dateError, setDateError] = useState('');
-    const [editIndex, setEditIndex] = useState(null); // To track the index of the note being edited
+    const [editIndex, setEditIndex] = useState(null);
     
     useEffect(() => {
         const loadNotes = async () => {
@@ -38,9 +38,9 @@ const Dairy = () => {
         let updatedNotes = [...notes];
         
         if (editIndex !== null) {
-            updatedNotes[editIndex] = newNote; // Update the note if editing
+            updatedNotes[editIndex] = newNote;
         } else {
-            updatedNotes.push(newNote); // Add a new note
+            updatedNotes.push(newNote);
         }
         
         await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
@@ -50,14 +50,14 @@ const Dairy = () => {
         setTitle('');
         setNote('');
         setDateError('');
-        setEditIndex(null); // Reset edit index after submitting
+        setEditIndex(null);
     };
     
     const handleEditNote = (index) => {
         const noteToEdit = notes[index];
         setTitle(noteToEdit.title);
         setNote(noteToEdit.note);
-        setEditIndex(index); // Set the index of the note being edited
+        setEditIndex(index);
         setIsModalVisible(true);
     };
     
@@ -108,7 +108,6 @@ const Dairy = () => {
                     <View style={{height: 100}} />
                 </ScrollView>
 
-                {/* Modal for creating or editing a note */}
                 <Modal visible={isModalVisible} animationType="fade" transparent={true}>
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent}>

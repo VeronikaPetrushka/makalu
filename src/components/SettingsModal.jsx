@@ -53,6 +53,7 @@ const SettingsModal = ({ visible, onClose }) => {
             await AsyncStorage.removeItem('birthDate');
             await AsyncStorage.removeItem('album');
             await AsyncStorage.removeItem('places');
+            await AsyncStorage.removeItem('notes');
 
             setShowResetConfirmation(false);
 
@@ -88,7 +89,7 @@ const SettingsModal = ({ visible, onClose }) => {
                 {showResetConfirmation ? (
                     <>
                         <Text style={styles.confirmationText}>
-                        Are you sure you want to reset your account? This action will delete your profile, including your user name, uploaded photo, score,archive, and purchased articles!
+                        Are you sure you want to reset your account? This action will delete your profile, including your notes, photo album, visited places, and achievements!
                         </Text>
                         <TouchableOpacity style={styles.resetBtn} onPress={handleReset}>
                             <Text style={styles.btnText}>Reset</Text>
