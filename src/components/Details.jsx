@@ -131,22 +131,6 @@ const Details = ({ place }) => {
         <ImageBackground source={require('../assets/back/1.png')} style={{flex: 1}}>
             <View style={styles.container}>
 
-                <View style={styles.iconsContainer}>
-
-                    <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
-                        <Icons type={'back'} light />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.back} onPress={handleShowMap}>
-                        <Icons type={'map'} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.back} onPress={handleUploadImage}>
-                        <Icons type={'camera'} />
-                    </TouchableOpacity>
-
-                </View>
-
                 <TouchableOpacity
                     style={[styles.checkBtn, isVisited && { backgroundColor: 'rgba(77, 145, 137, 0.6)' }]}
                     onPress={() => !isVisited && setIsModalVisible(true)}
@@ -223,6 +207,23 @@ const Details = ({ place }) => {
                     <View style={{height: 50}} />
                 </ScrollView>
 
+                <View style={styles.iconsContainer}>
+
+                    <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
+                        <Icons type={'back'} light />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.back} onPress={handleShowMap}>
+                        <Icons type={'map'} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.back} onPress={handleUploadImage}>
+                        <Icons type={'camera'} />
+                    </TouchableOpacity>
+
+                </View>
+
+
                 <Modal
                     transparent={true}
                     animationType="fade"
@@ -271,20 +272,20 @@ const styles = StyleSheet.create({
     },
 
     iconsContainer: {
-        position: 'absolute',
-        left: 30,
-        top: height * 0.07,
-        zIndex: 10,
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         padding: 10,
-        borderRadius: 4,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)'
+        borderRadius: 12,
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        marginTop: 10
     },
 
     back: {
         width: 40,
         height: 40,
         zIndex: 10,
-        marginVertical: 10,
     },
 
     checkBtn: {
