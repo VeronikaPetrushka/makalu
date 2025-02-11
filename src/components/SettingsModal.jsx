@@ -1,48 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert, Vibration, Dimensions, Modal, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, Dimensions, Modal, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useMusic } from '../constants/music.js';
 import Icons from './Icons.jsx';
 
 const { height } = Dimensions.get('window');
 
 const SettingsModal = ({ visible, onClose }) => {
-    const { isPlaying, togglePlay } = useMusic();
     const [showResetConfirmation, setShowResetConfirmation] = useState(false);
-    const [vibrationEnabled, setVibrationEnabled] = useState(true);
-
-    useEffect(() => {  
-        loadSettings();
-    }, []); 
-
-    const loadSettings = async () => {
-            try {
-                const storedVibration = await AsyncStorage.getItem('vibrationEnabled');
-                if (storedVibration !== null) {
-                    setVibrationEnabled(JSON.parse(storedVibration));
-                }
-            } catch (error) {
-                console.log('Error loading settings:', error);
-            }
-        };
-
-    const handleToggleLoudness = async () => {
-        togglePlay();
-    };
-
-    const handleToggleVibration = async () => {
-        const newVibrationState = !vibrationEnabled;
-        setVibrationEnabled(newVibrationState);
-
-        try {
-            await AsyncStorage.setItem('vibrationEnabled', JSON.stringify(newVibrationState));
-            if (newVibrationState) {
-                Vibration.vibrate();
-            }
-        } catch (error) {
-            console.log('Error saving vibration setting:', error);
-        }
-    };
 
     const handleReset = async () => {
         try {
@@ -59,12 +23,6 @@ const SettingsModal = ({ visible, onClose }) => {
             Alert.alert('Progress Reset', 'Your progress has been reset successfully!', [
                 { text: 'OK', onPress: () => console.log('OK Pressed') }
             ]);
-
-            if (vibrationEnabled) {
-                Vibration.vibrate();
-            }
-
-            await loadSettings();
 
             onClose();
 
@@ -102,32 +60,6 @@ const SettingsModal = ({ visible, onClose }) => {
                         <Text style={styles.title}>Settings</Text>
 
                         <ScrollView style={{width: '100%'}}>
-
-                            <View style={styles.regulatorContainer}>
-                                <View style={{width: 60, height: 60}}>
-                                    <Icons type={isPlaying ? 'play' : 'pause'} />
-                                </View>
-                                <Text style={[styles.toggleText, isPlaying ? styles.toggleTextOn : styles.toggleTextOff]}>
-                                    {isPlaying ? 'On' : 'Off'}
-                                </Text>
-                                <TouchableOpacity style={[styles.toggleContainer, isPlaying ? styles.toggleContainer : styles.toggleContainerOff]} onPress={handleToggleLoudness}>
-                                    <View style={[styles.toggle, isPlaying ? styles.toggleOn : styles.toggleOff]}></View>
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={styles.regulatorContainer}>
-                                <View style={{width: 60, height: 60}}>
-                                    <Icons type={vibrationEnabled ? 'vibration' : 'vibration-off'} />
-                                </View>
-                                <Text style={[styles.toggleText, vibrationEnabled ? styles.toggleTextOn : styles.toggleTextOff]}>
-                                    {vibrationEnabled ? 'On' : 'Off'}
-                                </Text>
-                                <TouchableOpacity style={[styles.toggleContainer, vibrationEnabled ? styles.toggleContainer : styles.toggleContainerOff]} onPress={handleToggleVibration}>
-                                    <View style={[styles.toggle, vibrationEnabled ? styles.toggleOn : styles.toggleOff]}></View>
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={{height: height * 0.02}} />
 
                             <TouchableOpacity style={styles.resetBtn} onPress={() => setShowResetConfirmation(true)}>
                                 <Text style={styles.btnText}>Reset</Text>

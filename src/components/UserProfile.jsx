@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, TouchableWithoutFeedback, 
     KeyboardAvoidingView, Keyboard, Alert, Dimensions, ScrollView } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import { launchImageLibrary } from 'react-native-image-picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icons from './Icons';
@@ -22,7 +22,6 @@ const UserProfile = ({ visible, onClose }) => {
     const [dayOpen, setDayOpen] = useState(false);
     const [monthOpen, setMonthOpen] = useState(false);
     const [yearOpen, setYearOpen] = useState(false);
-    const [visitOpen, setVisitOpen] = useState(false);
   
     const days = Array.from({ length: 31 }, (_, i) => ({
       label: `${(i + 1).toString().padStart(2, '0')}`,
